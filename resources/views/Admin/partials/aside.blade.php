@@ -61,7 +61,7 @@
       </li>
     </ul>
     <p class="menu-label">About</p>
-    <ul class="menu-list">
+<!--     <ul class="menu-list">
       <li>
         <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank" class="has-icon">
           <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
@@ -80,6 +80,6 @@
           <span class="menu-item-label">GitHub</span>
         </a>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </aside>
