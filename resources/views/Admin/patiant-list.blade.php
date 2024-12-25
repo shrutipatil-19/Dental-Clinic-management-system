@@ -189,9 +189,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-
-
+                <tbody id="patient-list">
                     @foreach ($patiant_lists as $patiant_list)
                         <tr>
                             <td>{{ $patiant_list->name}}</td>
@@ -244,3 +242,65 @@
     </div>
 </section>
 @endsection
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Handle delete action with AJAX
+    $('.btn-delete').on('click', function(e) {
+        e.preventDefault();
+
+        const form = $(this).closest('form'); // Get the form for the delete action
+        const row = $(this).closest('tr'); // Get the row to remove after deletion
+
+        // Confirm before deletion
+        if (confirm('Are you sure you want to delete this patient?')) {
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(), // Include the CSRF token
+                success: function(response) {
+                    if (response.status === 'success') {
+                        // Remove the row from the table
+                        row.fadeOut(500, function() {
+                            $(this).remove();
+                        });
+                        alert(response.message); // Show success message
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('There was an error deleting the patient.');
+                }
+            });
+        }
+    });
+});
+
+$(document).on('submit', '#updatePatientForm', function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        const form = $(this);
+        const formData = form.serialize();
+        const actionUrl = form.attr('action');
+
+        $.ajax({
+            url: actionUrl,
+            method: 'PUT',
+            data: formData,
+            success: function(response) {
+                if (response.status === 'success') {
+                    alert(response.message);
+
+                    // Optionally update the DOM with the new data
+                    $('#patient-name').text(response.data.name);
+                    $('#patient-email').text(response.data.email);
+                    // Add other fields as needed
+                }
+            },
+            error: function(xhr, status, error) {
+                alert('An error occurred: ' + xhr.responseJSON.message);
+            }
+        });
+    });
+
+@endpush

@@ -20,7 +20,7 @@
     </a>
   </div>
 </section>
-<form action="{{ route('update_patiant', $patiant_list->id) }}" method="POST" class="w-[70%] mx-auto" style="width:70%;">
+<form id="updatePatientForm"  action="{{ route('update_patiant', $patiant_list->id) }}" method="POST" class="w-[70%] mx-auto" style="width:70%;">
     @csrf
     @method('PATCH')
     <div class="container">

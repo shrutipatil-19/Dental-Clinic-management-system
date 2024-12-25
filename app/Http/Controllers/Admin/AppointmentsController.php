@@ -17,11 +17,11 @@ class AppointmentsController extends Controller
         $appointments = bookAppointment::query();
 
         if ($fromDate) {
-            $appointments->whereDate('created_at', '>=', $fromDate);
+            $appointments->whereDate('date', '>=', $fromDate);
         }
 
         if ($toDate) {
-            $appointments->whereDate('created_at', '<=', $toDate);
+            $appointments->whereDate('date', '<=', $toDate);
         }
 
         // Get the filtered results with pagination

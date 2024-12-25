@@ -1,4 +1,3 @@
-
 <nav id="navbar-main" class="navbar is-fixed-top">
   <div class="navbar-brand">
     <a class="navbar-item mobile-aside-button">
@@ -48,7 +47,11 @@
           <div class="user-avatar">
             <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe" class="rounded-full">
           </div>
-          <div class="is-user-name"><span>John Doe</span></div>
+          <div class="is-user-name"><span>Hello, {{Auth::user()->name}}</span></div>
+
+          <!-- <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">Hello, {{Auth::user()->name}}</a> -->
+
           <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
         </a>
         <div class="navbar-dropdown">
@@ -68,15 +71,22 @@
           <a class="navbar-item">
             <span class="icon"><i class="mdi mdi-logout"></i></span>
             <span>Log Out</span>
+
+         
           </a>
         </div>
       </div>
-      
-      
-      <a title="Log out" class="navbar-item desktop-icon-only">
-        <span class="icon"><i class="mdi mdi-logout"></i></span>
-        <span>Log out</span>
-      </a>
+
+
+      <!-- <a title="Log out" class="navbar-item desktop-icon-only">app -->
+      <form id="logout-form" action="{{ route('account.logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+            <a class="dropdown-item" href="{{route('account.logout')}}"
+              onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              Logout
+            </a>
+      <!-- </a> -->
     </div>
   </div>
 </nav>

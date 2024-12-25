@@ -1,13 +1,12 @@
 @extends('admin.layouts.app')
 <style>
-     #filter {
+    #filter {
         padding: 5px 20px;
         background: #3b82f6;
         color: white;
         border: none;
         border-radius: 5px;
     }
-
 </style>
 @section('content')
 <section class="section main-section">
@@ -53,50 +52,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($appointments as $appointment)
+                    @forelse ($appointments as $appointment)
                         <tr>
-                            <td>{{ $appointment->timeSlot->slot }}</td>
+                            <td>{{ $appointment->timeSlot ? $appointment->timeSlot->slot : 'N/A' }}</td>
                             <td>{{ $appointment->date }}</td>
                             <td>{{ $appointment->name }}</td>
                             <td>{{ $appointment->email }}</td>
                             <td>{{ $appointment->mobile }}</td>
-                            <td> <!-- Delete Button (with confirmation) -->
-                                <form action="{{ route('delete.appointment', $appointment->id) }}" method="POST"
-                                    style="display:inline;">
+                            <td>
+                                <form action="{{ route('delete.appointment', $appointment->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn-delete red"
-                                        onclick="return confirm('Are you sure you want to delete this appointment?')">
+                                    <button type="submit" class="btn-delete red" onclick="return confirm('Are you sure you want to delete this appointment?')">
                                         Delete
                                     </button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-center">No appointments found for the selected date range.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
-
         </div>
     </div>
-
-    <!-- <div class="notification green">
-      <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
-        <div>
-          <span class="icon"><i class="mdi mdi-buffer"></i></span>
-          <b>Tightly wrapped.</b> Table header becomes card header
-        </div>
-        <button type="button" class="button small textual --jb-notification-dismiss">Dismiss</button>
-      </div>
-    </div>
-    <div class="notification red">
-      <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
-        <div>
-          <span class="icon"><i class="mdi mdi-buffer"></i></span>
-          <b>Empty table.</b>
-        </div>
-        <button type="button" class="button small textual --jb-notification-dismiss">Dismiss</button>
-      </div>
-    </div> -->
 
     <div class="card empty">
         <div class="card-content">
@@ -108,27 +89,3 @@
     </div>
 </section>
 @endsection
-<!-- <h1>Appointments</h1>
-
-<table border="1">
-    <tr>
-        <th>Time Slot</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-
-        <th>Actions</th>
-    </tr>
-    @foreach ($appointments as $appointment)
-        <tr>
-            <td>{{ $appointment->timeSlot->slot }}</td>
-            <td>{{ $appointment->name }}</td>
-            <td>{{ $appointment->email }}</td>
-            <td>{{ $appointment->mobile }}</td>
-
-            <td>
-
-            </td>
-        </tr>
-    @endforeach
-</table> -->

@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 class TimeSlotSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      */

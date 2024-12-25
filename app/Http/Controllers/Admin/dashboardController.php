@@ -77,7 +77,7 @@ class dashboardController extends Controller
     }
     public function store_patiant(Request $request)
     {
-        $list = $request->validate([
+        $patiant_lists = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'phone' => 'required|string|max:15',
@@ -94,7 +94,7 @@ class dashboardController extends Controller
         ]);
         patiant_list::create($request->all());
         // dd($list);
-        return view('Admin.patiant-list');
+        return view('Admin.patiant-list', compact('patiant_lists'));
         // return redirect()->route('Admin.patiant-list')->with('success', 'Appointment successfully submitted!');
     }
     public function edit_patiant($id)
@@ -118,24 +118,56 @@ class dashboardController extends Controller
             'pending_fees' => 'nullable|numeric|min:0',
             'next_schedule_date' => 'nullable|date',
             'progress' => 'required|in:active,done',
-            'next_schedule_date' => 'nullable|date',
         ]);
-
+    
+        // Update the patient
         $patiant_list->update($validatedData);
-
-
-        // Redirect to the employee list page with a success message
-        return redirect()->route('Admin.employee_list')->with('success', 'Employee added successfully.');
+    
+        // If the request is AJAX, return the updated table content
+        if ($request->ajax()) {
+            // Get the latest patient list (you can also apply pagination if needed)
+            $patiant_lists = patiant_list::paginate(5);
+            
+            // Return the updated view for the patient list
+            return response()->json([
+                'status' => 'success',
+                'view' => view('Admin.patiant_list', compact('patiant_lists'))->render()
+            ]);
+        }
+    
+        // If it's not an AJAX request, redirect to the patient list page
+        return redirect()->route('patiant_list')->with('success', 'Patient updated successfully.');
     }
+    
+    
+    // public function destroy($id)
+    // {
+    //     // Find the appointment by ID and delete it
+    //     patiant_list::destroy($id);
+
+    //     // Redirect back to the list page with a success message
+    //     // return view('admin.edit_patiant');
+    //     return redirect()->route('Admin.patiant-list')->with('success', 'Appointment deleted successfully!');
+    // }
+
+
     public function destroy($id)
     {
-        // Find the appointment by ID and delete it
-        patiant_list::destroy($id);
-
-        // Redirect back to the list page with a success message
-        // return view('admin.edit_patiant');
-        return redirect()->route('Admin.patiant-list')->with('success', 'Appointment deleted successfully!');
+        $patiant = patiant_list::findOrFail($id);
+        $patiant->delete();
+    
+        // Check if the request is an AJAX call
+        if (request()->ajax()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Patient deleted successfully.'
+            ]);
+        }
+    
+        // For non-AJAX requests, redirect back
+        return redirect()->back()->with('success', 'Patient deleted successfully.');
     }
+    
 
     public function employee_list(Request $request)
     {
@@ -176,7 +208,7 @@ class dashboardController extends Controller
         Employee::create($validatedData);
 
         // Redirect to the employee list page with a success message
-        return redirect()->route('Admin.employee_list')->with('success', 'Employee added successfully.');
+        return redirect()->route('employee_list');
     }
 
 
@@ -200,7 +232,7 @@ class dashboardController extends Controller
 
         $employee->update($validatedData);
 
-        return redirect()->route('Admin.employee_list')->with('success', 'Employee updated successfully.');
+        return redirect()->route('employee_list')->with('success', 'Employee updated successfully.');
     }
 
     public function delete_employee($id)
@@ -211,6 +243,6 @@ class dashboardController extends Controller
         // Delete the employee record
         $employee->delete();
 
-        return redirect()->route('Admin.employee_list')->with('success', 'Employee deleted successfully.');
+        return redirect()->route('employee_list');
     }
 }

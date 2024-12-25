@@ -24,7 +24,7 @@ return new class extends Migration
             $table->decimal('paid_fees', 10, 2)->nullable();
             $table->decimal('pending_fees', 10, 2)->nullable();
             $table->date('next_schedule_date')->nullable();
-            $table->enum('progress', ['active', 'done'])->default('pending');
+            $table->enum('progress', ['active', 'done']);
             $table->timestamps();
         });
     }

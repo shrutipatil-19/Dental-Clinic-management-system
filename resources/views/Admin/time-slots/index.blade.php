@@ -19,8 +19,8 @@
                 <tr>
                     <th>Slots</th>
                     <!-- <th>Date</th> -->
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <!-- <th>Edit</th>
+                    <th>Delete</th> -->
 
                 </tr>
             </thead>
@@ -28,7 +28,7 @@
                 @foreach ($timeSlots as $slot)
                     <tr>
                         <td>{{ $slot->slot }}</td>
-                        <td>
+                        <!-- <td>
                             <a href="{{ route('time-slots.edit', $slot->id) }}">Edit</a> 
                            
                         </td>
@@ -40,7 +40,7 @@
                                 @method('DELETE')
                                 <button type="submit">Delete</button>
                             </form>
-                        </td>
+                        </td> -->
                     </tr>
                 @endforeach
             </tbody>

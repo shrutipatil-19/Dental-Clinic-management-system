@@ -93,11 +93,11 @@
     </div>
 
 
-    <!-- Search Form -->
+    <!-- Search Form
     <form method="GET" action="" class="search-form">
         <input type="text" name="name" placeholder="Search by Name" value="{{ request('name') }}">
         <button type="submit" class="btn btn-primary">Search</button>
-    </form>
+    </form> -->
 </section>
 
 <section class="section main-section">
@@ -108,9 +108,9 @@
                 <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
                 Employee
             </p>
-            <a href="#" class="card-header-icon">
+            <!-- <a href="#" class="card-header-icon">
                 <span class="icon"><i class="mdi mdi-reload"></i></span>
-            </a>
+            </a> -->
             <form method="GET" action="{{ route('employee_list') }}" class="search-form">
                 <input type="text" name="name" placeholder="Search by Name" value="{{ request('name') }}">
                 <button type="submit" class="btn btn-primary">Search</button>

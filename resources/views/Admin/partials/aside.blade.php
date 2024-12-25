@@ -44,9 +44,9 @@
         <a class="dropdown" href="{{route('time-slots.index')}}">
           <span class="icon"><i class="mdi mdi-view-list"></i></span>
           <span class="menu-item-label">Slots</span>
-          <span class="icon"><i class="mdi mdi-plus"></i></span>
+          <!-- <span class="icon"><i class="mdi mdi-plus"></i></span> -->
         </a>
-        <ul>
+        <!-- <ul>
           <li>
             <a href="#void">
               <span>Sub-item One</span>
@@ -57,18 +57,18 @@
               <span>Sub-item Two</span>
             </a>
           </li>
-        </ul>
+        </ul> -->
       </li>
     </ul>
     <p class="menu-label">About</p>
     <ul class="menu-list">
       <li>
-        <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank" class="has-icon">
+        <a href="{{route('login_list')}}" class="has-icon">
           <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-          <span class="menu-item-label">Premium Demo</span>
+          <span class="menu-item-label">Login Users</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
           <span class="menu-item-label">About</span>
@@ -79,7 +79,7 @@
           <span class="icon"><i class="mdi mdi-github-circle"></i></span>
           <span class="menu-item-label">GitHub</span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </aside>
