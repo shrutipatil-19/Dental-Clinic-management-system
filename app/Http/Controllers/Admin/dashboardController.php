@@ -7,6 +7,7 @@ use App\Models\patiant_list;
 use App\Models\Employee;
 use App\Models\bookAppointment;
 use Illuminate\Http\Request;
+use App\Models\Service;
 use Carbon\Carbon; // Import Carbon class for date handling
 
 class dashboardController extends Controller
@@ -119,27 +120,27 @@ class dashboardController extends Controller
             'next_schedule_date' => 'nullable|date',
             'progress' => 'required|in:active,done',
         ]);
-    
+
         // Update the patient
         $patiant_list->update($validatedData);
-    
+
         // If the request is AJAX, return the updated table content
         if ($request->ajax()) {
             // Get the latest patient list (you can also apply pagination if needed)
             $patiant_lists = patiant_list::paginate(5);
-            
+
             // Return the updated view for the patient list
             return response()->json([
                 'status' => 'success',
                 'view' => view('Admin.patiant_list', compact('patiant_lists'))->render()
             ]);
         }
-    
+
         // If it's not an AJAX request, redirect to the patient list page
         return redirect()->route('patiant_list')->with('success', 'Patient updated successfully.');
     }
-    
-    
+
+
     // public function destroy($id)
     // {
     //     // Find the appointment by ID and delete it
@@ -155,7 +156,7 @@ class dashboardController extends Controller
     {
         $patiant = patiant_list::findOrFail($id);
         $patiant->delete();
-    
+
         // Check if the request is an AJAX call
         if (request()->ajax()) {
             return response()->json([
@@ -163,11 +164,11 @@ class dashboardController extends Controller
                 'message' => 'Patient deleted successfully.'
             ]);
         }
-    
+
         // For non-AJAX requests, redirect back
         return redirect()->back()->with('success', 'Patient deleted successfully.');
     }
-    
+
 
     public function employee_list(Request $request)
     {
@@ -245,4 +246,42 @@ class dashboardController extends Controller
 
         return redirect()->route('employee_list');
     }
+
+    public function services_list()
+    {
+        $services = Service::all();
+        foreach ($services as $service) {
+            $service->process = json_decode($service->process, true); // Convert JSON to array
+            $service->pros = json_decode($service->pros, true);
+            $service->cons = json_decode($service->cons, true);
+        }
+        return view('Admin.services', compact('services'));
+    }
+    public function create_services()
+    {
+        return view('Admin.create_services');
+    }
+    public function services_store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'process' => 'nullable|array',
+            'duration' => 'nullable|array',
+            'pros' => 'nullable|array',
+            'cons' => 'nullable|array',
+        ]);
+
+        Service::create([
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'process' => json_encode($validated['process'] ?? []),
+            'duration' => json_encode($validated['duration'] ?? []),
+            'pros' => json_encode($validated['pros'] ?? []),
+            'cons' => json_encode($validated['cons'] ?? []),
+        ]);
+
+        return redirect()->route('services_list')->with('success', 'Service created successfully.');
+    }
+
 }

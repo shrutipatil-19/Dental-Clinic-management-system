@@ -31,6 +31,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
     Route::post('/appointments/book', [AppointmentController::class, 'book'])->name('appointments.book');
     Route::get('/contact', [AppointmentController::class, 'contact'])->name('contact');
+    Route::get('/load-more-services', [AppointmentController::class, 'loadMoreServices'])->name('loadMoreServices');
+
     Route::get('star', function () {
         return view('star');
     });
@@ -64,6 +66,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/edit_employee/{id}', [dashboardController::class, 'edit_employee'])->name('edit_employee');
     Route::patch('/update_employee/{employee}', [dashboardController::class, 'update_employee'])->name('update_employee');
     Route::delete('/delete_employee/{id}', [dashboardController::class, 'delete_employee'])->name('delete_employee');
+    Route::get('/services', [dashboardController::class, 'services_list'])->name('services_list');
+    Route::get('/create_services', [dashboardController::class, 'create_services'])->name('create_services');
+    Route::post('/services_store', [dashboardController::class, 'services_store'])->name('services_store');
+    
 });
 
 

@@ -35,7 +35,7 @@
         </a>
       </li>
       <li>
-        <a href="login.html">
+        <a href="{{route('services_list')}}">
           <span class="icon"><i class="mdi mdi-lock"></i></span>
           <span class="menu-item-label">Services</span>
         </a>
@@ -68,7 +68,7 @@
           <span class="menu-item-label">Login Users</span>
         </a>
       </li>
-      <!-- <li>
+   <!-- <li>
         <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
           <span class="icon"><i class="mdi mdi-help-circle"></i></span>
           <span class="menu-item-label">About</span>

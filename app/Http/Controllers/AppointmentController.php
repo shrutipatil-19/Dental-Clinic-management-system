@@ -4,15 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\bookAppointment;
 use App\Models\bookTimeSlot;
+use App\Models\service;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
 
-    public function home()
-    {
-        return view('home');
+    public function home(Request $request)
+{
+    $services = Service::paginate(2); // Load 2 services at a time
+    if ($request->ajax()) {
+        return response()->json($services); // Return paginated data as JSON
     }
+    return view('home', compact('services'));
+}
+    
+//     public function loadMoreServices(Request $request)
+// {
+//     $page = $request->get('page', 1);
+//     $perPage = $request->get('perPage', 2);
+
+//     // Paginate the services
+//     $services = Service::skip(($page - 1) * $perPage)->take($perPage)->get();
+
+//     // Return the response in JSON format
+//     return response()->json([
+//         'services' => $services
+//     ]);
+// }
+
     public function index()
     {
         $timeSlots = bookTimeSlot::all();
