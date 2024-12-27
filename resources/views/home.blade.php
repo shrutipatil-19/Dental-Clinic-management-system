@@ -64,8 +64,8 @@
                         <i class="bi bi-trophy"></i>
                     </div>
                     <div class="stat-content">
-                        <h4>Routine checkups and cleanings</h4>
-                        <p class="mb-0">The dentist examines your teeth, gums, and mouth to detect any issues</p>
+                        <h4>Hygiene and Safety</h4>
+                        <p class="mb-0">Strict sterilization and infection control protocols.</p>
                     </div>
                 </div>
             </div>
@@ -75,8 +75,8 @@
                         <i class="bi bi-briefcase"></i>
                     </div>
                     <div class="stat-content">
-                        <h4>Teeth whitening</h4>
-                        <p class="mb-0">Removing stains and discoloration</p>
+                        <h4>Patient Care</h4>
+                        <p class="mb-0">Clear explanations of procedures, costs, and post-treatment care.</p>
                     </div>
                 </div>
             </div>
@@ -86,8 +86,8 @@
                         <i class="bi bi-graph-up"></i>
                     </div>
                     <div class="stat-content">
-                        <h4>Root canal treatments</h4>
-                        <p class="mb-0">Treat infection or damage inside a tooth's pulp</p>
+                        <h4>Technology</h4>
+                        <p class="mb-0">Use of advanced equipment such as digital X-rays, 3D imaging, and laser dentistry.</p>
                     </div>
                 </div>
             </div>
@@ -97,8 +97,8 @@
                         <i class="bi bi-award"></i>
                     </div>
                     <div class="stat-content">
-                        <h4>Fillings for cavities</h4>
-                        <p class="mb-0">Tooth that has been damaged by decay</p>
+                        <h4>Qualified Professionals</h4>
+                        <p class="mb-0">Experienced and certified dentists, hygienists, and specialists.</p>
                     </div>
                 </div>
             </div>
@@ -450,63 +450,49 @@
                 <div class="faq-container">
 
                     <div class="faq-item faq-active">
-                        <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                        <h3>What services does the clinic offer?</h3>
                         <div class="faq-content">
-                            <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
-                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus
-                                non.</p>
+                            <p>Our clinic provides preventive, restorative, cosmetic, and specialized dental care, including cleanings, fillings, teeth whitening, orthodontics, and more.</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
+                        <h3>Where is the clinic located, and what are your operating hours?</h3>
                         <div class="faq-content">
-                            <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                                laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
-                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
-                                turpis massa tincidunt dui.</p>
+                            <p>[Insert location and hours of operation, including any weekend or evening availability.]</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                        <h3>Do I need to schedule an appointment, or do you accept walk-ins?</h3>
                         <div class="faq-content">
-                            <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum
-                                tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-                                molestie at elementum eu facilisis sed odio morbi quis</p>
+                            <p>Appointments are recommended to ensure availability, but we accommodate walk-ins based on scheduling.</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
+                        <h3>How do I book an appointment?</h3>
                         <div class="faq-content">
-                            <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                                laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
-                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
-                                turpis massa tincidunt dui.</p>
+                            <p>You can book an appointment by calling us at [phone number], visiting our website [website URL], or using our mobile app.</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
+                        <h3>What payment options are available?</h3>
                         <div class="faq-content">
-                            <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                                ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit
-                                adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                            <p>We accept cash, credit/debit cards, and offer flexible payment plans. [Mention any third-party financing options if applicable.]</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->
 
                     <div class="faq-item">
-                        <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
+                        <h3>Why are dental X-rays necessary?</h3>
                         <div class="faq-content">
-                            <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in
-                                suscipit sequi. Distinctio ipsam dolore et.</p>
+                            <p>X-rays help detect issues not visible during a regular exam, such as cavities between teeth, bone loss, or impacted teeth.</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
                     </div><!-- End Faq item-->

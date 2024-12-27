@@ -10,7 +10,26 @@
 </style>
 @section('content')
 <section class="section main-section">
-    <div class="notification blue">
+    <section class="is-title-bar" style="padding:0px;">
+        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <ul>
+                <li>Admin</li>
+                <li>Employee List</li>
+            </ul>
+            <a href="{{route('create_employee')}}" class="button blue">
+                <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
+                <span>Add Employee</span>
+            </a>
+        </div>
+
+
+        <!-- Search Form
+    <form method="GET" action="" class="search-form">
+        <input type="text" name="name" placeholder="Search by Name" value="{{ request('name') }}">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form> -->
+    </section>
+    <!-- <div class="notification blue">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
             <div>
                 <span class="icon"><i class="mdi mdi-buffer"></i></span>
@@ -18,8 +37,8 @@
             </div>
             <button type="button" class="button small textual --jb-notification-dismiss">Dismiss</button>
         </div>
-    </div>
-    <form method="GET" action="{{ route('appointment.list') }}" class="mt-3">
+    </div> -->
+    <form method="GET" action="{{ route('appointment.list') }}" class="my-3">
         <label for="from_date" class="font-medium" style="font-weight: 500;">From Date:</label>
         <input type="date" name="from_date" id="from_date" value="{{ request('from_date') }}">
 
@@ -60,10 +79,12 @@
                             <td>{{ $appointment->email }}</td>
                             <td>{{ $appointment->mobile }}</td>
                             <td>
-                                <form action="{{ route('delete.appointment', $appointment->id) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('delete.appointment', $appointment->id) }}" method="POST"
+                                    style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn-delete red" onclick="return confirm('Are you sure you want to delete this appointment?')">
+                                    <button type="submit" class="btn-delete red"
+                                        onclick="return confirm('Are you sure you want to delete this appointment?')">
                                         Delete
                                     </button>
                                 </form>

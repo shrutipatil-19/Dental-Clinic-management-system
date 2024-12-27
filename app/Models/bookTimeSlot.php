@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class bookTimeSlot extends Model
 {
     use HasFactory;
- 
+
     protected $fillable = [
         'slot',
-        'is_booked', // Field added for mass assignment
-        
+        'is_booked',
     ];
 
     /**
@@ -22,6 +21,18 @@ class bookTimeSlot extends Model
      */
     public function appointments()
     {
-        return $this->hasMany(bookAppointment::class);
+        return $this->hasMany(bookAppointment::class, 'time_slot_id');
+    }
+
+    /**
+     * Check if the time slot is booked for a specific date.
+     *
+     * @param string $date
+     * @return bool
+     */
+    public function isBookedForDate($date)
+    {
+        return $this->appointments()->where('date', $date)->exists();
     }
 }
+

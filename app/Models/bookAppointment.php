@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class bookAppointment extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'time_slot_id', // Field added for mass assignment
+        'time_slot_id', 
         'name',
         'email',
         'city',
         'village',
         'mobile',
         'date',
-
     ];
+
     /**
      * Get the time slot that owns the appointment.
      *
@@ -25,6 +26,6 @@ class bookAppointment extends Model
      */
     public function timeSlot()
     {
-        return $this->belongsTo(bookTimeSlot::class);
+        return $this->belongsTo(bookTimeSlot::class, 'time_slot_id');
     }
 }

@@ -12,9 +12,9 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="/" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="{{route('home')}}" class="active">Home</a></li>
+          <li><a href="{{route('about')}}">About</a></li>
+          <li><a href="{{route('services_page')}}">Services</a></li>
           <!-- <li><a href="#features">Features</a></li> -->
           <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>

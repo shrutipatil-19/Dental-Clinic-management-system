@@ -1,5 +1,5 @@
 
-<footer id="footer" class="footer">
+<footer id="footer" class="footer mb-3">
 
 <div class="container footer-top">
   <div class="row gy-4">
@@ -21,29 +21,29 @@
       </div>
     </div>
 
-    <div class="col-lg-2 col-md-3 footer-links">
+    <div class="col-lg-2 col-md-2 footer-links">
       <h4>Useful Links</h4>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Terms of service</a></li>
-        <li><a href="#">Privacy policy</a></li>
+        <li><a href="{{route('home')}}">Home</a></li>
+        <li><a href="{{route('about')}}">About us</a></li>
+        <li><a href="">Services</a></li>
+         <li><a href="{{route('contact')}}">Contact Us</a></li>
+       <!-- <li><a href="#">Privacy policy</a></li> -->
       </ul>
     </div>
 
-    <div class="col-lg-2 col-md-3 footer-links">
+    <div class="col-lg-4 col-md-2 footer-links">
       <h4>Our Services</h4>
       <ul>
-        <li><a href="#">Web Design</a></li>
-        <li><a href="#">Web Development</a></li>
-        <li><a href="#">Product Management</a></li>
-        <li><a href="#">Marketing</a></li>
-        <li><a href="#">Graphic Design</a></li>
+        <li><a href="#">Teeth whitening</a></li>
+        <li><a href="#">Root canal treatments</a></li>
+        <li><a href="#">Emergency dental care</a></li>
+        <li><a href="#">Pediatric dental carePediatric dental care</a></li>
+        <!-- <li><a href="#">Graphic Design</a></li> -->
       </ul>
     </div>
 
-    <div class="col-lg-2 col-md-3 footer-links">
+    <div class="col-lg-2 col-md-2 footer-links">
       <h4>Hic solutasetp</h4>
       <ul>
         <li><a href="#">Molestiae accusamus iure</a></li>
@@ -54,7 +54,7 @@
       </ul>
     </div>
 
-    <div class="col-lg-2 col-md-3 footer-links">
+    <!-- <div class="col-lg-2 col-md-3 footer-links">
       <h4>Nobis illum</h4>
       <ul>
         <li><a href="#">Ipsam</a></li>
@@ -63,20 +63,17 @@
         <li><a href="#">Trodelas</a></li>
         <li><a href="#">Flexo</a></li>
       </ul>
-    </div>
+    </div> -->
 
   </div>
 </div>
 
-<div class="container copyright text-center mt-4">
+<!-- <div class="container copyright text-center mt-4">
   <p>© <span>Copyright</span> <strong class="px-1 sitename">iLanding</strong> <span>All Rights Reserved</span></p>
   <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you've purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+
     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
   </div>
-</div>
+</div> -->
 
 </footer>

@@ -30,9 +30,10 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [AppointmentController::class, 'home'])->name('home');
     Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
     Route::post('/appointments/book', [AppointmentController::class, 'book'])->name('appointments.book');
+    Route::get('/about', [AppointmentController::class, 'about'])->name('about');
+    Route::get('/services_page', [AppointmentController::class, 'services_page'])->name('services_page');
     Route::get('/contact', [AppointmentController::class, 'contact'])->name('contact');
-    Route::get('/load-more-services', [AppointmentController::class, 'loadMoreServices'])->name('loadMoreServices');
-
+   
     Route::get('star', function () {
         return view('star');
     });
